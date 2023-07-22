@@ -1,6 +1,6 @@
 import { useSiteMetadata } from 'hooks/useSiteMetadata'
-import React from 'react'
-import { ReactNode } from 'react'
+import React, { ReactNode } from 'react'
+import google from '../../secret/googleSEOKey'
 
 type SEOProps = {
   title?: string
@@ -47,10 +47,7 @@ export const SEO = ({ title, description, url, image, children }: SEOProps) => {
       <meta name="twitter:site" content={seo.twitterUsername} />
       <meta name="twitter:creator" content={seo.twitterUsername} />
 
-      <meta
-        name="google-site-verification"
-        content="웹 마스터 도구가 제공하는 Meta 태그"
-      />
+      <meta name="google-site-verification" content={google.apikey} />
 
       <html lang="ko" />
 
