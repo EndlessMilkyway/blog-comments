@@ -70,6 +70,12 @@ yarn-error.log
 
 contents/
 
+# IDE Project Setting
 /.idea/
+
+# Content Files
 /contents/
 /static/
+
+# CNAME File
+/CNAME
