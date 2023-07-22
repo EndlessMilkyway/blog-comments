@@ -8,7 +8,7 @@ type TemplateProps = {
   image: string
 }
 
-const Metadata: FunctionComponent<TemplateProps> = function ({
+export const Head: FunctionComponent<TemplateProps> = function ({
   title,
   description,
   url,
@@ -41,4 +41,4 @@ const Metadata: FunctionComponent<TemplateProps> = function ({
   )
 }
 
-export default Metadata
+export default Head

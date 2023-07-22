@@ -14,6 +14,7 @@ module.exports = {
     description: `이곳은 저의 개발 성장 일기를 공유하는 곳 입니다.`,
     author: `EndlessMilkyway`,
     siteUrl: `https://endlessmilkyway.github.io/`,
+    twitterUsername: `EndlessMilkyway`,
   },
   plugins: [
     {

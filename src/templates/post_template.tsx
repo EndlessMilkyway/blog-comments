@@ -5,9 +5,20 @@ import PostHead from 'components/Post/PostHead'
 import { PostFrontmatterType } from 'types/PostItem.types'
 import PostContent from 'components/Post/PostContent'
 import CommentWidget from 'components/Post/CommentWidget'
-import PageMeta from 'components/Common/PageMeta'
+import { SEO } from 'components/Common/seo'
 
 type PostTemplateProps = {
+  data: {
+    allMarkdownRemark: {
+      edges: PostPageItemType[]
+    }
+  }
+  location: {
+    href: string
+  }
+}
+
+type PostPageSEOProps = {
   data: {
     allMarkdownRemark: {
       edges: PostPageItemType[]
@@ -22,32 +33,27 @@ const PostTemplate: FunctionComponent<PostTemplateProps> = function ({
   data: {
     allMarkdownRemark: { edges },
   },
-  location: { href },
 }) {
   const {
     node: {
       html,
       frontmatter: {
         title,
-        summary,
         date,
         categories,
         thumbnail: {
           childImageSharp: { gatsbyImageData },
-          publicURL,
         },
       },
     },
   } = edges[0]
 
+  // seoTitle = title
+  // seoDesc = summary
+  // seoImg = publicURL
+
   return (
     <Template>
-      <PageMeta
-        title={title}
-        description={summary}
-        url={href}
-        image={publicURL}
-      />
       <PostHead
         title={title}
         date={date}
@@ -61,6 +67,20 @@ const PostTemplate: FunctionComponent<PostTemplateProps> = function ({
 }
 
 export default PostTemplate
+
+export const Head = ({
+  location: { href },
+  data: {
+    allMarkdownRemark: { edges },
+  },
+}: PostPageSEOProps) => (
+  <SEO
+    title={edges[0].node.frontmatter.title}
+    description={edges[0].node.frontmatter.summary}
+    url={href}
+    image={edges[0].node.frontmatter.thumbnail.publicURL}
+  />
+)
 
 export const queryMarkdownDataBySlug = graphql`
   query queryMarkdownDataBySlug($slug: String) {

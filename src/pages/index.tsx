@@ -1,26 +1,19 @@
 import CategoryList, { CategoryListProps } from 'components/Main/CategoryList'
 import Introduction from 'components/Main/Introduction'
 import PostList from 'components/Main/PostList'
-import { FunctionComponent, useMemo } from 'react'
+import React, { FunctionComponent, useMemo } from 'react'
 import { graphql } from 'gatsby'
 import { PostListItemType } from 'types/PostItem.types'
 import { IGatsbyImageData } from 'gatsby-plugin-image'
 import queryString, { ParsedQuery } from 'query-string'
 import Template from 'components/Common/Template'
-import PageMeta from 'components/Common/PageMeta'
+import { SEO } from 'components/Common/seo'
 
 type IndexPageProps = {
   location: {
     search: string
   }
   data: {
-    site: {
-      siteMetadata: {
-        title: string
-        description: string
-        siteUrl: string
-      }
-    }
     allMarkdownRemark: {
       edges: PostListItemType[]
     }
@@ -28,6 +21,18 @@ type IndexPageProps = {
       childImageSharp: {
         gatsbyImageData: IGatsbyImageData
       }
+    }
+  }
+}
+
+type IndexPageSEOProps = {
+  data: {
+    site: {
+      siteMetadata: {
+        siteUrl: string
+      }
+    }
+    file: {
       publicURL: string
     }
   }
@@ -36,13 +41,9 @@ type IndexPageProps = {
 const IndexPage: FunctionComponent<IndexPageProps> = function ({
   location: { search },
   data: {
-    site: {
-      siteMetadata: { title, description, siteUrl },
-    },
     allMarkdownRemark: { edges },
     file: {
       childImageSharp: { gatsbyImageData },
-      publicURL,
     },
   },
 }) {
@@ -79,12 +80,6 @@ const IndexPage: FunctionComponent<IndexPageProps> = function ({
 
   return (
     <Template>
-      <PageMeta
-        title={title}
-        description={description}
-        url={siteUrl}
-        image={publicURL}
-      />
       <Introduction profileImage={gatsbyImageData} />
       <CategoryList
         selectedCategory={selectedCategory}
@@ -97,12 +92,19 @@ const IndexPage: FunctionComponent<IndexPageProps> = function ({
 
 export default IndexPage
 
+export const Head = ({
+  data: {
+    site: {
+      siteMetadata: { siteUrl },
+    },
+    file: { publicURL },
+  },
+}: IndexPageSEOProps) => <SEO url={siteUrl} image={publicURL} />
+
 export const getPostList = graphql`
   query getPostList {
     site {
       siteMetadata {
-        title
-        description
         siteUrl
       }
     }
