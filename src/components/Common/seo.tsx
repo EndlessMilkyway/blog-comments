@@ -1,6 +1,7 @@
 import { useSiteMetadata } from 'hooks/useSiteMetadata'
 import React, { ReactNode } from 'react'
 import google from '../../secret/googleSEOKey'
+import naver from '../../secret/naverSEOKey'
 
 type SEOProps = {
   title?: string
@@ -48,6 +49,7 @@ export const SEO = ({ title, description, url, image, children }: SEOProps) => {
       <meta name="twitter:creator" content={seo.twitterUsername} />
 
       <meta name="google-site-verification" content={google.apikey} />
+      <meta name="naver-site-verification" content={naver.apiKey} />
 
       <html lang="ko" />
 
