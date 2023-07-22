@@ -47,6 +47,11 @@ export const SEO = ({ title, description, url, image, children }: SEOProps) => {
       <meta name="twitter:site" content={seo.twitterUsername} />
       <meta name="twitter:creator" content={seo.twitterUsername} />
 
+      <meta
+        name="google-site-verification"
+        content="웹 마스터 도구가 제공하는 Meta 태그"
+      />
+
       <html lang="ko" />
 
       {children}
