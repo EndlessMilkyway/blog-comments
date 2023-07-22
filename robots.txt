@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Sitemap: https://endlessmilkyway.github.io/sitemap-index.xml
+Host: https://endlessmilkyway.github.io
