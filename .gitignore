@@ -52,7 +52,7 @@ typings/
 *.tgz
 
 # dotenv environment variable files
-.env*
+.env
 
 # gatsby files
 .cache/
@@ -79,3 +79,6 @@ contents/
 
 # CNAME File
 /CNAME
+
+# Secret
+/src/secret/*
