@@ -1,4 +1,4 @@
-import { FunctionComponent, ReactNode } from 'react'
+import React, { FunctionComponent, ReactNode } from 'react'
 import styled from '@emotion/styled'
 import GlobalStyle from 'components/Common/GlobalStyle'
 import Footer from 'components/Common/Footer'
@@ -6,7 +6,8 @@ import Footer from 'components/Common/Footer'
 type TemplateProps = {
   children: ReactNode
 }
-const Container = styled.div`
+
+const Container = styled.main`
   display: flex;
   flex-direction: column;
   height: 100%;

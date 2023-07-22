@@ -10,10 +10,10 @@ const { plugins } = require('eslint-plugin-react/configs/all')
  */
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
-    siteUrl: `https://gatsbystarterdefaultsource.gatsbyjs.io/`,
+    title: `매일 꾸준히 한 걸음씩`,
+    description: `이곳은 저의 개발 성장 일기를 공유하는 곳 입니다.`,
+    author: `EndlessMilkyway`,
+    siteUrl: `https://endlessmilkyway.dev/`,
   },
   plugins: [
     {
@@ -87,6 +87,20 @@ module.exports = {
             },
           },
         ],
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-canonical-urls',
+      options: {
+        siteUrl: 'https://endlessmilkyway.dev',
+        stripQueryString: true,
+      },
+    },
+    'gatsby-plugin-sitemap',
+    {
+      resolve: 'gatsby-plugin-robots-txt',
+      options: {
+        policy: [{ userAgent: '*', allow: '/' }],
       },
     },
     // {
