@@ -81,4 +81,4 @@ contents/
 /CNAME
 
 # Secret
-/src/secret/*
+/src/secret/
