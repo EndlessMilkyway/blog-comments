@@ -13,7 +13,7 @@ module.exports = {
     title: `매일 꾸준히 한 걸음씩`,
     description: `이곳은 저의 개발 성장 일기를 공유하는 곳 입니다.`,
     author: `EndlessMilkyway`,
-    siteUrl: `https://endlessmilkyway.github.io/`,
+    siteUrl: `https://endlessmilkyway.dev/`,
     twitterUsername: `EndlessMilkyway`,
   },
   plugins: [
@@ -93,7 +93,7 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-canonical-urls',
       options: {
-        siteUrl: 'https://endlessmilkyway.github.io/',
+        siteUrl: 'https://endlessmilkyway.dev/',
         stripQueryString: true,
       },
     },
@@ -102,6 +102,15 @@ module.exports = {
       resolve: 'gatsby-plugin-robots-txt',
       options: {
         policy: [{ userAgent: '*', allow: '/' }],
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-page-progress',
+      options: {
+        excludePaths: ['/', '/cv'],
+        height: 5,
+        prependToBody: false,
+        color: `#fd0000`,
       },
     },
     // {

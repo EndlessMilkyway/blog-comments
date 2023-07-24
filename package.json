@@ -16,6 +16,7 @@
     "gatsby-plugin-canonical-urls": "^5.11.0",
     "gatsby-plugin-emotion": "^8.11.0",
     "gatsby-plugin-image": "^3.11.0",
+    "gatsby-plugin-page-progress": "^2.2.1",
     "gatsby-plugin-robots-txt": "^1.8.0",
     "gatsby-plugin-sharp": "^5.11.0",
     "gatsby-plugin-sitemap": "^6.11.0",
