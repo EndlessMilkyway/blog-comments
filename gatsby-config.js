@@ -57,6 +57,10 @@ module.exports = {
       options: {
         plugins: [
           {
+            resolve: 'gatsby-remark-autolink-headers',
+            options: {},
+          },
+          {
             resolve: 'gatsby-remark-smartypants',
             options: {
               dashes: 'oldschool',

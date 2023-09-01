@@ -2,7 +2,7 @@ import { createRef, FunctionComponent, useEffect } from 'react'
 import styled from '@emotion/styled'
 
 const src = 'https://utteranc.es/client.js'
-const repo = 'EndlessMilkyway/blog-comments'
+const repo = 'EndlessMilkyway/endlessmilkyway.github.io'
 
 type UtteranceAttributeTypes = {
   src: string
